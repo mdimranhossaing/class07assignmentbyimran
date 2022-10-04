@@ -11,16 +11,16 @@
   $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 
   // registration process
-    $sql = "INSERT INTO users(username, email, password) VALUES ('$name', '$email', '$password')";
-    $query = $conn->query($sql);
+  $sql = "INSERT INTO users(username, email, password) VALUES ('$name', '$email', '$password')";
+  $query = $conn->query($sql);
 
-    if ($query === true) {
-      echo 'New record created successfuly';
-    } else {
-      echo 'Error: ' . $query . '<br>' . $conn->error;
-    }
+  if ($query === true) {
+    echo 'New record created successfuly';
+  } else {
+    echo 'Error: ' . $query . '<br>' . $conn->error;
+  }
 
-    $conn->close();
+  $conn->close();
 
 
 ?>
