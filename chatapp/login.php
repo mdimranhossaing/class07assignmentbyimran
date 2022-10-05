@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration page | by Imran</title>
+  <title>Login page | by Imran</title>
 
   <!-- link main stylesheet css file -->
   <link rel="stylesheet" href="style.css">
@@ -13,18 +13,12 @@
 
 <body>
 
-  <!-- user ragistration area start -->
-  <div class="registration">
+  <!-- user login area start -->
+  <div class="login">
 
-    <form class="form-register" action="" method="POST">
+    <form class="form-login" action="" method="POST">
 
-      <h2 class="title">Registration form</h2>
-
-      <div class="input-group">
-        <label for="name">Your name</label>
-        <input type="text" id="name" placeholder="Enter your name">
-        <div class="name-error"></div>
-      </div>
+      <h2 class="title">Login form</h2>
 
       <div class="input-group">
         <label for="email">Email address</label>
@@ -38,23 +32,13 @@
         <div class="password-error"></div>
       </div>
 
-      <div class="input-group">
-        <label for="confirm-password">Confirm password</label>
-        <input type="password" id="confirm-password" placeholder="Enter confirm password">
-        <div class="confirm-password-error"></div>
-      </div>
+      <button type="submit">login</button>
 
-      <button type="submit">Register</button>
-
-
-
-      <div id="message">
-        <div class="link">Already have and account? Please<a href="login.php">Login</a></div>
-      </div>
+      <div id="massage">Don't have an account? Please<a href="index.php">Register</a></div>
 
     </form>
   </div>
-  <!-- user registration area end -->
+  <!-- user login area end -->
 
   <!-- link jQuery js file -->
   <script src="./assets/lib/jquery/jquery-3.6.1.min.js"></script>
