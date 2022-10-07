@@ -1,8 +1,14 @@
 <?php 
 
+session_start();
+
 // require functions file
 if ( file_exists( dirname( __FILE__ ) . '/functions.php' ) ) {
   require_once( dirname( __FILE__ ) . '/functions.php' );
+}
+
+if (!user_logged_in()) {
+  header('location: login.php');
 }
 
 // create sql query
@@ -21,6 +27,17 @@ $query = $conn->query($sql);
   <title>Show all users</title>
 </head>
 
+<header>
+  <nav>
+    <ul>
+      <li><a href="users.php">Dashboard</a></li>
+      <li><a href="index.php">Registration page</a></li>
+      <li><a href="login.php">Login page</a></li>
+      <li><a href="logout.php">Logout page</a></li>
+    </ul>
+  </nav>
+</header>
+
 <body>
 
   <table border="1" cellpadding="10" cellspacing="5">
@@ -37,7 +54,7 @@ $query = $conn->query($sql);
         while( $row = $query->fetch_object() ) :
     ?>
       <tr>
-        <td><?php echo $row->username; ?></td>
+        <td><?php echo $row->name; ?></td>
         <td><?php echo $row->email; ?></td>
         <td><?php echo $row->password; ?></td>
       </tr>

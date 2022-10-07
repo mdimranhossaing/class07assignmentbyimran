@@ -1,3 +1,14 @@
+<?php 
+  session_start();
+
+  if (file_exists(dirname(__FILE__) . '/functions.php')) {
+    require_once(dirname(__FILE__) . '/functions.php');
+  }
+
+  if (user_logged_in()) {
+    header('location: users.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,18 +34,18 @@
       <div class="input-group">
         <label for="email">Email address</label>
         <input type="email" id="email" placeholder="Enter your email">
-        <div class="email-error"></div>
       </div>
 
       <div class="input-group">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter a password">
-        <div class="password-error"></div>
       </div>
 
       <button type="submit">login</button>
 
-      <div id="massage">Don't have an account? Please<a href="index.php">Register</a></div>
+      <div id="message">
+        <div class="link">Don't have an account? Please<a href="index.php">Register</a></div>
+      </div>
 
     </form>
   </div>

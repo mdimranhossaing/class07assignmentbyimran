@@ -1,3 +1,15 @@
+<?php 
+  session_start();
+
+  if (file_exists(dirname(__FILE__) . '/functions.php')) {
+    require_once(dirname(__FILE__) . '/functions.php');
+  }
+
+  if (user_logged_in()) {
+    header('location: users.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,25 +35,21 @@
       <div class="input-group">
         <label for="name">Your name</label>
         <input type="text" id="name" placeholder="Enter your name">
-        <div class="name-error"></div>
       </div>
 
       <div class="input-group">
         <label for="email">Email address</label>
         <input type="email" id="email" placeholder="Enter your email">
-        <div class="email-error"></div>
       </div>
 
       <div class="input-group">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter a password">
-        <div class="password-error"></div>
       </div>
 
       <div class="input-group">
         <label for="confirm-password">Confirm password</label>
         <input type="password" id="confirm-password" placeholder="Enter confirm password">
-        <div class="confirm-password-error"></div>
       </div>
 
       <button type="submit">Register</button>
