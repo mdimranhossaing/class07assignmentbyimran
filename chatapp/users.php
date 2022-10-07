@@ -39,10 +39,10 @@ $query = $conn->query($sql);
 
       <div class="top">
         <?php 
-          if (isset($_SESSION['unique-id'])) {
-            $this_user_unique_id = $_SESSION['unique-id'];
+          if (isset($_SESSION['user-id'])) {
+            $this_user_id = $_SESSION['user-id'];
 
-            $this_user_info_sql = "SELECT * FROM users WHERE unique_id = '$this_user_unique_id'";
+            $this_user_info_sql = "SELECT * FROM users WHERE user_id = '$this_user_id'";
 
             $this_user_all_info = $conn->query($this_user_info_sql);
 
@@ -63,7 +63,7 @@ $query = $conn->query($sql);
               while( $row = $query->fetch_object() ) :
           ?>
         <li>
-          <a href="<?php echo $link_path; ?>/chat.php?unique_id=<?php echo $row->unique_id; ?>"><?php echo $row->name; ?></a>
+          <a href="<?php echo $link_path; ?>/chat.php?user-id=<?php echo $row->user_id; ?>"><?php echo $row->name; ?></a>
         </li>
         <?php 
               endwhile;

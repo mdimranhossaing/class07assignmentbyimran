@@ -97,6 +97,10 @@
 
       if($conn->query($sql) === true){
         echo '<span class="link">Thanks for registration please<a href="login.php">Login</a></span>';
+        $this_user_sql = "SELECT * FROM users WHERE email = '$email'";
+        $this_user_query = $conn->query($this_user_sql);
+        $this_user_row = $this_user_query->fetch_object();
+        $_SESSION['user-id'] = $this_user_row->user_id;
         $_SESSION['register'] = 'success';
       }
     }

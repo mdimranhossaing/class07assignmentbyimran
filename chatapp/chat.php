@@ -11,6 +11,12 @@ if (!user_logged_in()) {
   header('location: login.php');
 }
 
+$user_id = isset($_GET['user-id']) ? $_GET['user-id'] : null;
+
+$user_sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+$user_query = $conn->query($user_sql);
+$user_row = $user_query->fetch_object();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +40,21 @@ if (!user_logged_in()) {
 
       <div class="top">
         <h2 class="title">Chat Page</h2>
+        <a href="users.php">Exit</a>
       </div>
 
-      <div class="chat-area">message area</div>
+      <a class="name" href=""><?php echo $user_row->name; ?></a>
+
+      <div class="chat-area">
+        <div class="chat-box"></div>
+      </div>
+
+      <form class="message-form" action="" method="POST">
+        <input id="sender-id" type="number" hidden value="<?php echo $_SESSION['user-id']; ?>">
+        <input id="receiver-id" type="number" hidden value="<?php echo $user_row->user_id; ?>">
+        <textarea id="message-field" cols="30" placeholder="Type something..."></textarea>
+        <button type="submit">Send</button>
+      </form>
 
     </div>
   </div>

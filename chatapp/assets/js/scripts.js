@@ -4,6 +4,8 @@
   // all document ready
   jQuery(document).ready(function () {
 
+    chatBox = document.querySelector(".chat-area");
+
     var pathname = window.location.pathname; // Returns path only (/path/example.html)
     var url = window.location.href; // Returns full URL (https://example.com/path/example.html)
     var origin = window.location.origin; // Returns base URL (https://example.com
@@ -82,6 +84,55 @@
       return false;
 
     });
+
+    // message process with ajax
+    jQuery('.message-form').submit(function () {
+
+      // create variables
+      let senderId = jQuery('#sender-id').val();
+      let receiverId = jQuery('#receiver-id').val();
+      let message = jQuery('#message-field').val();
+
+      // create login ajax
+      $.ajax({
+        type: "POST",
+        url: "chat_process.php",
+        data: {
+          message_form: 'submited',
+          sender_id: senderId,
+          receiver_id: receiverId,
+          message: message,
+        },
+        success: function (response) {
+          jQuery('.chat-box').html(response);
+
+          // all variables set empty value
+          jQuery('#message-field').val('');
+          scrollToBottom();
+        }
+      });
+
+      return false;
+
+    });
+
+    // Auto reload
+    setInterval(() => {
+      $.ajax({
+        'url': 'chat_process.php',
+        'type': 'POST',
+        'data': {
+          'reload': 'form_submited',
+        },
+        'success': function (output) {
+          jQuery('.chat-box').html(output);
+        }
+      });
+    }, 200);
+
+    function scrollToBottom() {
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
 
   });
 

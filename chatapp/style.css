@@ -240,7 +240,6 @@ body {
 .chatpage .inner-box {
   display: flex;
   flex-direction: column;
-  gap: 15px;
   width: 320px;
   height: 460px;
   padding: 40px 30px;
@@ -250,16 +249,95 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+.chatpage .inner-box .name {
+  display: block;
+  color: greenyellow;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
 .chatpage .inner-box .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px dashed #fff;
-  padding-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .chatpage .inner-box .top .title {
   font-size: 20px;
   color: #fff;
 }
+
+.chatpage .inner-box .top a {
+  color: yellow;
+  background-color: red;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.chatpage .inner-box .chat-area {
+  overflow-y: scroll;
+  border-radius: 5px 5px 0 0;
+}
+
+.chatpage .inner-box .chat-area::-webkit-scrollbar {
+  display: none;
+}
+
+.chatpage .inner-box .chat-box {
+  background-color: whitesmoke;
+  min-height: 350px;
+  padding: 10px;
+}
+
+.chatpage .inner-box .chat-box .chat {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chatpage .inner-box .chat-box .chat:nth-child(even) {
+  background-color: wheat;
+}
+
+.chatpage .inner-box .chat-box .chat a {
+  display: block;
+  margin-bottom: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.chatpage .inner-box .chat-box .chat p {
+  font-size: 15px;
+}
+
+.chatpage .inner-box .message-form {
+  display: flex;
+}
+
+.chatpage .inner-box .message-form textarea {
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 0 0 0 5px;
+  box-sizing: border-box;
+  resize: none;
+  padding: 5px;
+}
+
+.chatpage .inner-box .message-form button {
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 0;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.chatpage .inner-box .message-form button:focus,
+.chatpage .inner-box .message-form textarea:focus {
+  outline: none;
+}
+
 /* chat page css code end */
