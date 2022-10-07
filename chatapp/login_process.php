@@ -44,6 +44,10 @@
 
       if (md5($password) === $row->password) {
         echo '<span class="link">Login successfuly</span>';
+        $this_user_sql = "SELECT * FROM users WHERE email = '$email'";
+        $this_user_query = $conn->query($this_user_sql);
+        $this_user_row = $this_user_query->fetch_object();
+        $_SESSION['unique-id'] = $this_user_row->unique_id;
         $_SESSION['login'] = 'success';
         ?>
         <script>

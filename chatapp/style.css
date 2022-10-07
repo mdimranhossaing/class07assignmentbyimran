@@ -159,3 +159,107 @@ body {
 }
 
 /* login area css code end */
+
+/* show all user page css code start */
+.users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #C6012F, red);
+}
+
+.users .user-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+  height: 460px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  background-color: #0B184A;
+  border: 1px solid #ccc;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.users .user-area .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #fff;
+  padding-bottom: 15px;
+}
+
+.users .user-area .top .title {
+  font-size: 20px;
+  color: #fff;
+}
+
+.users .user-area .top a {
+  color: yellow;
+  background-color: red;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.users .user-area ul {
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  row-gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.users .user-area ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 3px 5px;
+  color: #fff;
+  border: 1px dotted #ccc;
+  transition: all 0.1s ease;
+}
+
+.users .user-area ul li a:hover {
+  background-color: red;
+  border-color: yellow;
+}
+/* show all user page css code end */
+
+/* chat page css code start */
+.chatpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #C6012F, red);
+}
+
+.chatpage .inner-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+  height: 460px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  background-color: #0B184A;
+  border: 1px solid #ccc;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chatpage .inner-box .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #fff;
+  padding-bottom: 15px;
+}
+
+.chatpage .inner-box .top .title {
+  font-size: 20px;
+  color: #fff;
+}
+/* chat page css code end */
